@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: blue;
+  --text-primary :#fff
 }
 
 @theme inline {
@@ -24,3 +26,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root{
+  --primary: blue;
+}
+
+.bg-primary{
+  background: var(--primary);
+}
+
