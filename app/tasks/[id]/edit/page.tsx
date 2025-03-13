@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Save } from "lucide-react"
 import Link from "next/link"
+import { useParams } from "next/navigation"
 
 type TaskStatus = "pendiente" | "en-progreso" | "completada" | "cancelada"
 
@@ -87,9 +88,11 @@ export default function EditTaskPage({ params }: { params: { id: string } }) {
   })
 
   useEffect(() => {
+    
     const fetchTask = async () => {
       try {
-        const foundTask = tasks.find(t => t.id === params.id)
+        const {id}= await params
+        const foundTask = tasks.find(t => t.id === id)
         if (foundTask) {
           setFormData({
             name: foundTask.name,
@@ -107,8 +110,8 @@ export default function EditTaskPage({ params }: { params: { id: string } }) {
         setLoading(false)
       }
     }
-    fetchTask()
-  }, [params.id, router])
+    if (tasks) fetchTask() // ✅ Solo ejecuta la función si `params.id` existe
+  }, [tasks, router]) // ✅ Agrega `params.id` como dependencia
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -205,9 +208,9 @@ export default function EditTaskPage({ params }: { params: { id: string } }) {
           <div>
             <Label htmlFor="status"> Estado</Label>
             <Select
-              value={formData.status}>
+              value={formData.status}
               onValueChange={(value) => handleSelectChange("status", value as TaskStatus)}
-
+              >
               <SelectTrigger>
                 <SelectValue placeholder="seleccione un estado"></SelectValue>
               </SelectTrigger>
@@ -217,6 +220,7 @@ export default function EditTaskPage({ params }: { params: { id: string } }) {
                 <SelectItem value="completada">Completada</SelectItem>
                 <SelectItem value="cancelada">Cancelada</SelectItem>
               </SelectContent>
+              
             </Select>
           </div>
           <div className="space-y-2">

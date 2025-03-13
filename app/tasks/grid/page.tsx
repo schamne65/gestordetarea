@@ -1,6 +1,8 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
-import TaskGrid from "@/components/task-grid"
 import { TaskDialog } from "@/components/task-dialog"
+import TaskGrid from "@/components/task-grid"
 import Link from "next/link"
 import { TableIcon, GridIcon } from "lucide-react"
 

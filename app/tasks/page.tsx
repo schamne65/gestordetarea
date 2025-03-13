@@ -1,3 +1,5 @@
+'use client'
+
 import TaskTable from "@/components/task-table"
 import { Button } from "@/components/ui/button"
 import { TaskDialog } from "@/components/task-dialog"

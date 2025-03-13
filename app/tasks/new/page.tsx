@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -27,7 +29,7 @@ export default function NewTaskPage(){
         setFormData((prev) => ({...prev, [name] : value}))
     }
 
-    const handlerSelectChange =(name: string , value: string) =>{
+    const handleSelectChange =(name: string , value: string) =>{
         setFormData((prev) => ({...prev, [name] : value}))
     }
 
