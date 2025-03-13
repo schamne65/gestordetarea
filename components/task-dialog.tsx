@@ -18,10 +18,22 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { PlusCircle, Save } from "lucide-react"
 
-type TaskDialogProps ={
-    onSave: (task: any) => void
+type TaskStatus = "pendiente" | "en-progreso" | "completada" | "cancelada"
+
+interface Task {
+  id: string
+  name: string
+  assignedDate: string
+  assignedTo: string
+  dueDate: string
+  status: TaskStatus
+  observations: string
+}
+
+type TaskDialogProps = {
+    onSave: (task: Omit<Task, 'id' | 'assignedDate'>) => void
     buttonText?: string
-    initialData?: any
+    initialData?: Omit<Task, 'id' | 'assignedDate'>
     mode?: "create" | "edit"
 }
 
