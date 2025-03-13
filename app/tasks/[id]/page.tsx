@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
+import { useParams,useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -9,7 +9,8 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Edit, Trash2 } from "lucide-react"
 import Link from "next/link"
 
-// Definir tipos
+
+
 type TaskStatus = "pendiente" | "en-progreso" | "completada" | "cancelada"
 
 interface Task {
@@ -91,10 +92,12 @@ export default function TaskDetailPage ({params} : { params : {id : string}}){
 
     useEffect(() => {
         // Simular carga de datos
+        
         const fetchTask = async () => {
+          const {id} = await params
           try {
             // En un caso real, aquí harías una llamada a tu API
-            const foundTask = tasks.find((t) => t.id === params.id)
+            const foundTask = tasks.find((t) => t.id === id)
     
             if (foundTask) {
               setTask(foundTask)
