@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useParams,useRouter } from "next/navigation"
+import {  useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -113,7 +113,7 @@ export default function TaskDetailPage ({params} : { params : {id : string}}){
         }
     
         fetchTask()
-      }, [task, router])
+      }, [params.id, router])
 
       const formatDate = (dateString : string) => {
         const options : Intl.DateTimeFormatOptions = {year: "numeric" , month : "long" , day : "numeric"}
