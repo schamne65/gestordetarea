@@ -36,15 +36,22 @@ export default function TasksPage() {
 "use client"
 import TaskTable from "@/components/task-table"
 import { Button } from "@/components/ui/button"
-import { TaskDialog } from "@/components/task-dialog"
+import { TaskDialog} from "@/components/task-dialog"
 import Link from "next/link"
 import { TableIcon, GridIcon } from "lucide-react"
-import { getTasks } from "@/lib/db"
-console.log(getTasks)
 
+type TaskStatus = "pendiente" | "en-progreso" | "completada" | "cancelada"
+
+interface Task {
+  name: string
+  assignedTo: string
+  dueDate: string
+  status: TaskStatus
+  observations: string
+}
 
 export default function TasksPage() {
-  const handleSaveTask = (taskData: any) => {
+  const handleSaveTask = (taskData: Task) => {
     console.log("Nueva tarea:", taskData)
     // Aquí implementarías la lógica para guardar la tarea
     // Por ejemplo, hacer una petición a tu API
@@ -60,6 +67,7 @@ export default function TasksPage() {
               <Button variant="ghost" className="rounded-none bg-accent" title="Vista de tabla">
                 <TableIcon className="h-4 w-4" />
               </Button>
+              
             </Link>
             <Link href="/tasks/grid">
               <Button variant="ghost" className="rounded-none border-l" title="Vista de cuadrícula">
