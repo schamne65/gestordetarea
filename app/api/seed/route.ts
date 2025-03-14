@@ -25,7 +25,7 @@ export async function POST() {
     await sql`
       INSERT INTO tasks (name, assigned_to, assigned_date, due_date, status, observations)
       VALUES 
-        ('Diseñar página de inicio', 'Juan Pérez', '2023-05-10', '2023-05-20', 'completada', 'Incluir sección de testimonios'),
+        ('Nicolas', 'Juan Pérez', '2023-05-10', '2023-05-20', 'completada', 'Incluir sección de testimonios'),
         ('Implementar autenticación', 'María García', '2023-05-12', '2023-05-25', 'en-progreso', 'Usar NextAuth.js'),
         ('Optimizar rendimiento', 'Carlos Rodríguez', '2023-05-15', '2023-05-30', 'pendiente', 'Enfocarse en tiempo de carga inicial'),
         ('Crear documentación', 'Ana Martínez', '2023-05-18', '2023-06-05', 'pendiente', 'Incluir diagramas de flujo'),
