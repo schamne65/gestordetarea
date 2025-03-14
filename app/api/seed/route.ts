@@ -29,7 +29,8 @@ export async function POST() {
         ('Implementar autenticación', 'María García', '2023-05-12', '2023-05-25', 'en-progreso', 'Usar NextAuth.js'),
         ('Optimizar rendimiento', 'Carlos Rodríguez', '2023-05-15', '2023-05-30', 'pendiente', 'Enfocarse en tiempo de carga inicial'),
         ('Crear documentación', 'Ana Martínez', '2023-05-18', '2023-06-05', 'pendiente', 'Incluir diagramas de flujo'),
-        ('Pruebas de integración', 'Juan Pérez', '2023-05-20', '2023-06-10', 'cancelada', 'Usar Jest y Testing Library')
+        ('Pruebas de integración', 'Juan Pérez', '2023-05-20', '2023-06-10', 'cancelada', 'Usar Jest y Testing Library'),
+        ('nicolas el mejor' , 'Vanesa' , '2025-02-04', '2025-03-04', 'pendiente', 'probando')
     `
 
     return NextResponse.json({ message: "Base de datos inicializada con datos de ejemplo" }, { status: 200 })
